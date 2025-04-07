@@ -9,8 +9,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "127.0.0.1", 
     "localhost",
-    "f39c-115-245-68-163.ngrok-free.app",
-    "cabf-115-245-68-163.ngrok-free.app",
+    "703b-115-245-68-163.ngrok-free.app",
+    "6ead-115-245-68-163.ngrok-free.app",
 ]
 
 # 🔹 Installed apps
@@ -90,15 +90,15 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # ✅ Allow React frontend on 5173
     "http://localhost:5174",  # ✅ Allow React frontend on 5174
-    "https://cabf-115-245-68-163.ngrok-free.app",
-    "https://f39c-115-245-68-163.ngrok-free.app",
+    "https://703b-115-245-68-163.ngrok-free.app",
+    "https://6ead-115-245-68-163.ngrok-free.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",  # ✅ Trust frontend on 5173
     "http://localhost:5174",  # ✅ Trust frontend on 5174
-    "https://cabf-115-245-68-163.ngrok-free.app",
-    "https://f39c-115-245-68-163.ngrok-free.app",
+    "https://703b-115-245-68-163.ngrok-free.app",
+    "https://6ead-115-245-68-163.ngrok-free.app",
 ]
 
 

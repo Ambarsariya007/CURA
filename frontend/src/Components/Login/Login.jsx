@@ -42,7 +42,7 @@ const Login = () => {
     try {
       const csrfToken = getCookie("csrftoken"); // Get CSRF token from cookies
 
-      const response = await fetch("https://f39c-115-245-68-163.ngrok-free.app/login/", {
+      const response = await fetch("https://703b-115-245-68-163.ngrok-free.app/login/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

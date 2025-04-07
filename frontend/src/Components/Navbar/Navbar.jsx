@@ -32,7 +32,7 @@ const Navbar = () => {
 
   // Function to handle logout
   const fetchCSRFToken = async () => {
-    await fetch("https://f39c-115-245-68-163.ngrok-free.app/csrf/", {
+    await fetch("https://703b-115-245-68-163.ngrok-free.app/csrf/", {
       method: "GET",
       credentials: "include",
     });
@@ -45,7 +45,7 @@ const Navbar = () => {
       const csrfToken = getCookie("csrftoken");
       console.log("CSRF Token:", csrfToken); // Debugging
 
-      const response = await fetch("https://f39c-115-245-68-163.ngrok-free.app/logout/", {
+      const response = await fetch("https://703b-115-245-68-163.ngrok-free.app/logout/", {
         method: "POST",
         credentials: "include",
         headers: {

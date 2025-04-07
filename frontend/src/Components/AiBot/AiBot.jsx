@@ -89,7 +89,7 @@ const AIChat = () => {
     const csrfToken = getCSRFToken();
 
     try {
-      const res = await fetch("https://f39c-115-245-68-163.ngrok-free.app/api/predict-disease/", {
+      const res = await fetch("https://703b-115-245-68-163.ngrok-free.app/api/predict-disease/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -108,7 +108,7 @@ const AIChat = () => {
           currentComplaint: ccAnswer
         };
 
-        const saveRes = await fetch("https://f39c-115-245-68-163.ngrok-free.app/api/save-consultation/", {
+        const saveRes = await fetch("https://703b-115-245-68-163.ngrok-free.app/api/save-consultation/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -155,7 +155,7 @@ const AIChat = () => {
           </button>
           {reportId && (
             <a
-              href={`https://f39c-115-245-68-163.ngrok-free.app/api/generate-report/${reportId}/`}
+              href={`https://703b-115-245-68-163.ngrok-free.app/api/generate-report/${reportId}/`}
               target="_blank"
               rel="noopener noreferrer"
             >
