@@ -34,7 +34,7 @@ const Login = () => {
     setLoading(true);
 
     if (!formData.email || !formData.password) {
-      setError("⚠️ All fields are required!");
+      setError("⚠ All fields are required!");
       setLoading(false);
       return;
     }
@@ -42,7 +42,7 @@ const Login = () => {
     try {
       const csrfToken = getCookie("csrftoken"); // Get CSRF token from cookies
 
-      const response = await fetch("https://703b-115-245-68-163.ngrok-free.app/login/", {
+      const response = await fetch("http://localhost:8000/login/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

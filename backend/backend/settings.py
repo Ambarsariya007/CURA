@@ -97,8 +97,6 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",  # ✅ Trust frontend on 5173
     "http://localhost:5174",  # ✅ Trust frontend on 5174
-    "https://703b-115-245-68-163.ngrok-free.app",
-    "https://6ead-115-245-68-163.ngrok-free.app",
 ]
 
 

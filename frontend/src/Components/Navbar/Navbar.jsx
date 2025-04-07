@@ -30,9 +30,8 @@ const Navbar = () => {
     }
   }, []);
 
-  // Function to handle logout
   const fetchCSRFToken = async () => {
-    await fetch("https://703b-115-245-68-163.ngrok-free.app/csrf/", {
+    await fetch("http://localhost:8000/csrf/", {
       method: "GET",
       credentials: "include",
     });
@@ -40,12 +39,11 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await fetchCSRFToken(); // ✅ Ensure CSRF token is fetched
-
+      await fetchCSRFToken();
       const csrfToken = getCookie("csrftoken");
-      console.log("CSRF Token:", csrfToken); // Debugging
+      console.log("CSRF Token:", csrfToken);
 
-      const response = await fetch("https://703b-115-245-68-163.ngrok-free.app/logout/", {
+      const response = await fetch("http://localhost:8000/logout/", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -67,8 +65,6 @@ const Navbar = () => {
       console.error("Error:", error);
     }
   };
-
-
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -124,7 +120,9 @@ const Navbar = () => {
         <div className="auth-buttons">
           {user ? (
             <>
-              <motion.div className="welcome-msg">Welcome, {user.name}</motion.div>
+              <motion.div className="welcome-msg">
+                Welcome, {user?.name || "User"}
+              </motion.div>
               <motion.button
                 onClick={handleLogout}
                 className="btn-logout"
@@ -150,7 +148,11 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Toggle Button */}
-        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+        <button
+          className="menu-toggle"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
           {isMenuOpen ? "✖" : "☰"}
         </button>
       </div>
@@ -179,15 +181,26 @@ const Navbar = () => {
                 )
               )}
               {user ? (
-                <button onClick={handleLogout} className="btn-primary mobile-btn">
+                <button
+                  onClick={handleLogout}
+                  className="btn-primary mobile-btn"
+                >
                   Logout
                 </button>
               ) : (
                 <>
-                  <Link to="/login" className="btn-outline mobile-btn" onClick={toggleMenu}>
+                  <Link
+                    to="/login"
+                    className="btn-outline mobile-btn"
+                    onClick={toggleMenu}
+                  >
                     Log in
                   </Link>
-                  <Link to="/signup" className="btn-primary mobile-btn" onClick={toggleMenu}>
+                  <Link
+                    to="/signup"
+                    className="btn-primary mobile-btn"
+                    onClick={toggleMenu}
+                  >
                     Sign up
                   </Link>
                 </>

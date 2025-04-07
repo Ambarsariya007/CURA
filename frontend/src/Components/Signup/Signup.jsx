@@ -34,7 +34,6 @@ const Signup = () => {
       hospital: role === "doctor" ? formData.hospital : null
     };
 
-
     // Log the data to check what is being sent
     console.log("Sending data:", data);
 
