@@ -6,7 +6,12 @@ SECRET_KEY = 'django-insecure-h72^qb-kkz=_q-@mur=@_3t*jk3(xb*&gheq)ohm(5q7yvn+&2
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1", 
+    "localhost",
+    "f39c-115-245-68-163.ngrok-free.app",
+    "cabf-115-245-68-163.ngrok-free.app",
+]
 
 # 🔹 Installed apps
 INSTALLED_APPS = [
@@ -85,11 +90,15 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # ✅ Allow React frontend on 5173
     "http://localhost:5174",  # ✅ Allow React frontend on 5174
+    "https://cabf-115-245-68-163.ngrok-free.app",
+    "https://f39c-115-245-68-163.ngrok-free.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",  # ✅ Trust frontend on 5173
     "http://localhost:5174",  # ✅ Trust frontend on 5174
+    "https://cabf-115-245-68-163.ngrok-free.app",
+    "https://f39c-115-245-68-163.ngrok-free.app",
 ]
 
 

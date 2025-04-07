@@ -30,9 +30,10 @@ const Signup = () => {
     // Only include hospital if the user is a doctor
     const data = {
       ...formData,
-      user_type: role,
-      hospital: role === "doctor" ? formData.hospital : null // Omit hospital for non-doctors
+      role: role,
+      hospital: role === "doctor" ? formData.hospital : null
     };
+
 
     // Log the data to check what is being sent
     console.log("Sending data:", data);

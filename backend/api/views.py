@@ -66,13 +66,13 @@ class RegisterView(APIView):
         username = request.data.get("username")
         email = request.data.get("email")
         password = request.data.get("password")
-        user_type = request.data.get("user_type")
+        role = request.data.get("role")
         hospital = request.data.get("hospital")  # This is for doctors only
 
-        if not username or not email or not password or not user_type:
+        if not username or not email or not password or not role:
             return Response({"error": "All fields are required"}, status=status.HTTP_400_BAD_REQUEST)
 
-        if user_type == "doctor" and not hospital:
+        if role == "doctor" and not hospital:
             return Response({"error": "Hospital is required for doctors"}, status=status.HTTP_400_BAD_REQUEST)
 
         if CustomUser.objects.filter(email=email).exists():
@@ -82,11 +82,12 @@ class RegisterView(APIView):
             username=username,
             email=email,
             password=make_password(password),
-            user_type=user_type,
-            hospital=hospital if user_type == "doctor" else None  # Set hospital only for doctors
+            role=role,
+            hospital=hospital if role == "doctor" else None  # Set hospital only for doctors
         )
 
         return Response({"message": "Registration successful"}, status=status.HTTP_201_CREATED)
+
 
 
 class CSRFTokenView(APIView):

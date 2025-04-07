@@ -30,45 +30,45 @@ const Navbar = () => {
     }
   }, []);
 
-// Function to handle logout
-const fetchCSRFToken = async () => {
-  await fetch("http://localhost:8000/csrf/", {
-    method: "GET",
-    credentials: "include",
-  });
-};
-
-const handleLogout = async () => {
-  try {
-    await fetchCSRFToken(); // ✅ Ensure CSRF token is fetched
-
-    const csrfToken = getCookie("csrftoken");
-    console.log("CSRF Token:", csrfToken); // Debugging
-
-    const response = await fetch("http://localhost:8000/logout/", {
-      method: "POST",
+  // Function to handle logout
+  const fetchCSRFToken = async () => {
+    await fetch("https://f39c-115-245-68-163.ngrok-free.app/csrf/", {
+      method: "GET",
       credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-        "X-CSRFToken": csrfToken,
-      },
     });
+  };
 
-    if (response.ok) {
-      localStorage.removeItem("user");
-      localStorage.removeItem("token");
-      setUser(null);
-      navigate("/login");
-      window.location.reload();
-    } else {
-      console.error("Logout failed:", await response.text());
+  const handleLogout = async () => {
+    try {
+      await fetchCSRFToken(); // ✅ Ensure CSRF token is fetched
+
+      const csrfToken = getCookie("csrftoken");
+      console.log("CSRF Token:", csrfToken); // Debugging
+
+      const response = await fetch("https://f39c-115-245-68-163.ngrok-free.app/logout/", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrfToken,
+        },
+      });
+
+      if (response.ok) {
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+        setUser(null);
+        navigate("/login");
+        window.location.reload();
+      } else {
+        console.error("Logout failed:", await response.text());
+      }
+    } catch (error) {
+      console.error("Error:", error);
     }
-  } catch (error) {
-    console.error("Error:", error);
-  }
-};
+  };
 
-  
+
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
